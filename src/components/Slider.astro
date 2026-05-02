@@ -1,0 +1,121 @@
+---
+import slidesData from '../data/slides.json';
+
+interface Slide {
+  title: string;
+  subtitle: string;
+  imageUrl: string;
+  imageAlt: string;
+  c1: string;
+  c2: string;
+}
+
+const slides = (slidesData as { slides: Slide[] }).slides;
+---
+<section class="highlights" aria-labelledby="highlights-h">
+  <h2 id="highlights-h">Vårt örike</h2>
+
+  <div class="slider" role="region" aria-roledescription="bildspel" aria-label="Vårt örike">
+    <div class="slides" tabindex="0">
+      {slides.map((s, i) => (
+        <article
+          class:list={["slide", s.imageUrl && "has-image"]}
+          aria-roledescription="bild"
+          aria-label={`${i + 1} av ${slides.length}: ${s.title}`}
+          style={`--c1:${s.c1};--c2:${s.c2};${s.imageUrl ? `--bg-img:url('${s.imageUrl}')` : ''}`}
+        >
+          {s.imageUrl && <img src={s.imageUrl} alt={s.imageAlt} loading="lazy" />}
+          <div class="slide-text">
+            <h3>{s.title}</h3>
+            <p>{s.subtitle}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <button class="slider-arrow slider-prev" type="button" aria-label="Föregående bild">‹</button>
+    <button class="slider-arrow slider-next" type="button" aria-label="Nästa bild">›</button>
+
+    <div class="slider-dots" role="tablist" aria-label="Välj bild">
+      {slides.map((s, i) => (
+        <button
+          type="button"
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-label={`Bild ${i + 1}: ${s.title}`}
+          data-index={i}
+        ></button>
+      ))}
+    </div>
+  </div>
+
+  <p class="highlights-cta">
+    Vill du se din bild ovan? <a href="/dela">Bidra</a>.
+  </p>
+</section>
+
+<script is:inline>
+  (function () {
+    const slider = document.querySelector('.slider');
+    if (!slider) return;
+    const track = slider.querySelector('.slides');
+    const slidesEls = track.querySelectorAll('.slide');
+    const dots = [...slider.querySelectorAll('.slider-dots button')];
+    const prev = slider.querySelector('.slider-prev');
+    const next = slider.querySelector('.slider-next');
+    const total = slidesEls.length;
+    if (total < 2) { if (prev) prev.hidden = true; if (next) next.hidden = true; slider.querySelector('.slider-dots').hidden = true; return; }
+    let current = 0;
+    let timer = null;
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const INTERVAL = 6000;
+
+    function setSelected(i) {
+      current = ((i % total) + total) % total;
+      dots.forEach((d, idx) => d.setAttribute('aria-selected', idx === current ? 'true' : 'false'));
+    }
+
+    function go(i, smooth = true) {
+      setSelected(i);
+      track.scrollTo({ left: current * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function start() {
+      if (reduceMotion) return;
+      stop();
+      timer = setInterval(() => go(current + 1), INTERVAL);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    prev.addEventListener('click', () => { go(current - 1); start(); });
+    next.addEventListener('click', () => { go(current + 1); start(); });
+    dots.forEach((d) => d.addEventListener('click', () => { go(Number(d.dataset.index)); start(); }));
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', start);
+
+    let scrollT = null;
+    track.addEventListener('scroll', () => {
+      if (scrollT) clearTimeout(scrollT);
+      scrollT = setTimeout(() => {
+        const idx = Math.round(track.scrollLeft / track.clientWidth);
+        if (idx !== current) setSelected(idx);
+      }, 120);
+    });
+
+    track.addEventListener('keydown', (ev) => {
+      if (ev.key === 'ArrowLeft') { ev.preventDefault(); go(current - 1); start(); }
+      if (ev.key === 'ArrowRight') { ev.preventDefault(); go(current + 1); start(); }
+    });
+
+    let resizeT = null;
+    window.addEventListener('resize', () => {
+      if (resizeT) clearTimeout(resizeT);
+      resizeT = setTimeout(() => go(current, false), 150);
+    });
+
+    start();
+  })();
+</script>

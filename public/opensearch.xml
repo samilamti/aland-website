@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Åland.website</ShortName>
+  <LongName>Åland.website — startsidan för Ålands webb</LongName>
+  <Description>Hitta rätt på Ålands webb. Skriv ett ord — t.ex. polisen — och kom dit direkt.</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Language>sv</Language>
+  <Image width="32" height="32" type="image/svg+xml">https://åland.website/favicon.svg</Image>
+  <Url type="text/html" method="get" template="https://åland.website/sok?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://åland.website/opensearch.xml"/>
+  <SearchForm>https://åland.website/</SearchForm>
+  <Developer>Sami Lamti</Developer>
+  <Contact>hej@åland.website</Contact>
+  <Attribution>Skapad och underhålls av Sami Lamti. Oberoende civic-tech.</Attribution>
+</OpenSearchDescription>

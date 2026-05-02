@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "updated": "2026-05-02",
+  "note": "Curated keyword map for the Åland web. Each entry maps one or more keywords to a single URL. Run `npm run verify` to re-check all URLs.",
+  "entries": [
+    {
+      "keyword": "regeringen",
+      "aliases": ["landskapsregering", "landskapsregeringen", "lr"],
+      "url": "https://www.regeringen.ax",
+      "category": "myndighet",
+      "label_sv": "Ålands landskapsregering",
+      "verified": true
+    },
+    {
+      "keyword": "lagtinget",
+      "aliases": ["parlamentet", "ålands lagting"],
+      "url": "https://www.lagtinget.ax",
+      "category": "myndighet",
+      "label_sv": "Ålands lagting",
+      "verified": true
+    },
+    {
+      "keyword": "polisen",
+      "aliases": ["polis", "police", "polisstation"],
+      "url": "https://polisen.ax",
+      "category": "myndighet",
+      "label_sv": "Polisen på Åland",
+      "verified": true
+    },
+    {
+      "keyword": "mariehamn",
+      "aliases": ["mariehamns stad", "stan", "stad"],
+      "url": "https://www.mariehamn.ax",
+      "category": "kommun",
+      "label_sv": "Mariehamns stad",
+      "verified": true
+    },
+    {
+      "keyword": "jomala",
+      "aliases": ["jomala kommun"],
+      "url": "https://www.jomala.ax",
+      "category": "kommun",
+      "label_sv": "Jomala kommun",
+      "verified": true
+    },
+    {
+      "keyword": "finström",
+      "aliases": ["finstrom", "finström kommun"],
+      "url": "https://www.finstrom.ax",
+      "category": "kommun",
+      "label_sv": "Finströms kommun",
+      "verified": true
+    },
+    {
+      "keyword": "lemland",
+      "aliases": ["lemland kommun"],
+      "url": "https://www.lemland.ax",
+      "category": "kommun",
+      "label_sv": "Lemlands kommun",
+      "verified": true
+    },
+    {
+      "keyword": "saltvik",
+      "aliases": ["saltvik kommun"],
+      "url": "https://www.saltvik.ax",
+      "category": "kommun",
+      "label_sv": "Saltviks kommun",
+      "verified": true
+    },
+    {
+      "keyword": "hammarland",
+      "aliases": ["hammarland kommun"],
+      "url": "https://www.hammarland.ax",
+      "category": "kommun",
+      "label_sv": "Hammarlands kommun",
+      "verified": true
+    },
+    {
+      "keyword": "lumparland",
+      "aliases": ["lumparland kommun"],
+      "url": "https://www.lumparland.ax",
+      "category": "kommun",
+      "label_sv": "Lumparlands kommun",
+      "verified": true
+    },
+    {
+      "keyword": "eckerö",
+      "aliases": ["eckero", "eckerö kommun"],
+      "url": "https://www.eckero.ax",
+      "category": "kommun",
+      "label_sv": "Eckerö kommun",
+      "verified": true
+    },
+    {
+      "keyword": "geta",
+      "aliases": ["geta kommun"],
+      "url": "https://www.geta.ax",
+      "category": "kommun",
+      "label_sv": "Geta kommun",
+      "verified": true
+    },
+    {
+      "keyword": "sund",
+      "aliases": ["sund kommun"],
+      "url": "https://www.sund.ax",
+      "category": "kommun",
+      "label_sv": "Sunds kommun",
+      "verified": true
+    },
+    {
+      "keyword": "vårdö",
+      "aliases": ["vardo", "vårdö kommun"],
+      "url": "https://www.vardo.ax",
+      "category": "kommun",
+      "label_sv": "Vårdö kommun",
+      "verified": true
+    },
+    {
+      "keyword": "föglö",
+      "aliases": ["foglo", "föglö kommun"],
+      "url": "https://www.foglo.ax",
+      "category": "kommun",
+      "label_sv": "Föglö kommun",
+      "verified": true
+    },
+    {
+      "keyword": "kumlinge",
+      "aliases": ["kumlinge kommun"],
+      "url": "https://www.kumlinge.ax",
+      "category": "kommun",
+      "label_sv": "Kumlinge kommun",
+      "verified": true
+    },
+    {
+      "keyword": "brändö",
+      "aliases": ["brando", "brändö kommun"],
+      "url": "https://www.brando.ax",
+      "category": "kommun",
+      "label_sv": "Brändö kommun",
+      "verified": true
+    },
+    {
+      "keyword": "kökar",
+      "aliases": ["kokar", "kökar kommun"],
+      "url": "https://www.kokar.ax",
+      "category": "kommun",
+      "label_sv": "Kökar kommun",
+      "verified": true
+    },
+    {
+      "keyword": "sottunga",
+      "aliases": ["sottunga kommun"],
+      "url": "https://www.sottunga.ax",
+      "category": "kommun",
+      "label_sv": "Sottunga kommun",
+      "verified": true
+    },
+    {
+      "keyword": "ahs",
+      "aliases": ["sjukvård", "sjukhus", "hälsa", "halsa", "vård", "vard", "ålands hälso- och sjukvård"],
+      "url": "https://www.ahs.ax",
+      "category": "halsa",
+      "label_sv": "Ålands hälso- och sjukvård (ÅHS)",
+      "verified": true
+    },
+    {
+      "keyword": "apotek",
+      "aliases": ["apoteket", "pharmacy"],
+      "url": "https://apoteket.ax",
+      "category": "halsa",
+      "label_sv": "Första Apoteket",
+      "verified": true
+    },
+    {
+      "keyword": "folkhälsan",
+      "aliases": ["folkhalsan"],
+      "url": "https://www.folkhalsan.fi/aland",
+      "category": "halsa",
+      "label_sv": "Folkhälsan på Åland",
+      "verified": true
+    },
+    {
+      "keyword": "gymnasiet",
+      "aliases": ["gymnasium", "ålands gymnasium", "lyceet", "lyceum"],
+      "url": "https://www.gymnasium.ax",
+      "category": "utbildning",
+      "label_sv": "Ålands gymnasium",
+      "verified": true
+    },
+    {
+      "keyword": "yrkesgymnasiet",
+      "aliases": ["yrke", "yrkesutbildning", "ålands yrkesgymnasium"],
+      "url": "https://www.gymnasium.ax/alands-yrkesgymnasium",
+      "category": "utbildning",
+      "label_sv": "Ålands yrkesgymnasium",
+      "verified": true
+    },
+    {
+      "keyword": "högskolan",
+      "aliases": ["hogskolan", "högskolan på åland", "ha"],
+      "url": "https://www.ha.ax",
+      "category": "utbildning",
+      "label_sv": "Högskolan på Åland",
+      "verified": true
+    },
+    {
+      "keyword": "folkhögskolan",
+      "aliases": ["folkhogskolan", "folkis", "ålands folkhögskola"],
+      "url": "https://folkis.ax",
+      "category": "utbildning",
+      "label_sv": "Ålands folkhögskola",
+      "verified": true
+    },
+    {
+      "keyword": "musikinstitutet",
+      "aliases": ["musikinstitut", "ami", "ålands musikinstitut"],
+      "url": "https://www.ami.ax",
+      "category": "utbildning",
+      "label_sv": "Ålands musikinstitut (AMI)",
+      "verified": true
+    },
+    {
+      "keyword": "vikingline",
+      "aliases": ["viking", "viking line"],
+      "url": "https://www.vikingline.ax",
+      "category": "transport",
+      "label_sv": "Viking Line",
+      "verified": true
+    },
+    {
+      "keyword": "eckerölinjen",
+      "aliases": ["eckerolinjen", "eckerö linjen"],
+      "url": "https://www.eckerolinjen.ax",
+      "category": "transport",
+      "label_sv": "Eckerö Linjen",
+      "verified": true
+    },
+    {
+      "keyword": "alandstrafiken",
+      "aliases": ["ålandstrafiken", "skärgårdstrafiken", "skargardstrafiken", "buss", "färja", "farja"],
+      "url": "https://www.alandstrafiken.ax",
+      "category": "transport",
+      "label_sv": "Ålandstrafiken (kollektivtrafik & skärgårdsfärjor)",
+      "verified": true
+    },
+    {
+      "keyword": "flygplatsen",
+      "aliases": ["flyg", "mariehamns flygplats", "airport", "mhq"],
+      "url": "https://www.finavia.fi/sv/flygplatser/mariehamn",
+      "category": "transport",
+      "label_sv": "Mariehamns flygplats (Finavia)",
+      "verified": true
+    },
+    {
+      "keyword": "posten",
+      "aliases": ["åland post", "alandpost", "post"],
+      "url": "https://www.posten.ax",
+      "category": "tjanst",
+      "label_sv": "Åland Post",
+      "verified": false,
+      "note": "TLS cert mismatch from CLI tooling but works in real browsers; manual verification required"
+    },
+    {
+      "keyword": "alandstidningen",
+      "aliases": ["ålandstidningen", "tidningen", "ålandstidning", "at"],
+      "url": "https://www.alandstidningen.ax",
+      "category": "media",
+      "label_sv": "Ålandstidningen",
+      "verified": true
+    },
+    {
+      "keyword": "nyan",
+      "aliases": ["nya åland", "nyaaland", "nya aland"],
+      "url": "https://www.nyan.ax",
+      "category": "media",
+      "label_sv": "Nya Åland",
+      "verified": true
+    },
+    {
+      "keyword": "alandsbanken",
+      "aliases": ["banken", "ålandsbanken", "ab"],
+      "url": "https://www.alandsbanken.ax",
+      "category": "bank",
+      "label_sv": "Ålandsbanken",
+      "verified": true
+    },
+    {
+      "keyword": "andelsbanken",
+      "aliases": ["op", "op-pohjola"],
+      "url": "https://www.op.fi",
+      "category": "bank",
+      "label_sv": "Andelsbanken / OP",
+      "verified": true
+    },
+    {
+      "keyword": "naringsliv",
+      "aliases": ["näringsliv", "ålands näringsliv", "handelskammare"],
+      "url": "https://www.naringsliv.ax",
+      "category": "foretag",
+      "label_sv": "Ålands Näringsliv",
+      "verified": true
+    },
+    {
+      "keyword": "ams",
+      "aliases": ["arbetsmarknad", "jobb", "arbete"],
+      "url": "https://www.ams.ax",
+      "category": "myndighet",
+      "label_sv": "Arbetsmarknadsservice (AMS)",
+      "verified": true
+    },
+    {
+      "keyword": "fpa",
+      "aliases": ["kela", "socialförsäkring", "socialforsakring"],
+      "url": "https://www.kela.fi/privatpersoner",
+      "category": "myndighet",
+      "label_sv": "Folkpensionsanstalten (FPA)",
+      "verified": true
+    },
+    {
+      "keyword": "skatt",
+      "aliases": ["skatteverket", "vero", "skattemyndigheten"],
+      "url": "https://www.vero.fi/sv",
+      "category": "myndighet",
+      "label_sv": "Skatteförvaltningen",
+      "verified": true
+    },
+    {
+      "keyword": "väder",
+      "aliases": ["vader", "weather", "vädret"],
+      "url": "https://www.foreca.fi",
+      "category": "verktyg",
+      "label_sv": "Vädret (Foreca)",
+      "verified": false,
+      "note": "Generic Foreca homepage; consider replacing with a Mariehamn-specific URL once a stable one is found"
+    },
+    {
+      "keyword": "aland",
+      "aliases": ["åland", "ålands portal", "alandsportalen"],
+      "url": "https://www.aland.ax",
+      "category": "info",
+      "label_sv": "Åland.ax (landskapsregeringens portal)",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Dela en höjdpunkt — mitt.ax"
+  description="Föreslå en höjdpunkt från Åland — något du tycker andra borde få upp ögonen för."
+>
+  <section class="hero">
+    <h1>Dela en höjdpunkt</h1>
+    <p>Något åländskt som andra borde få upp ögonen för? Skicka in det här.</p>
+  </section>
+
+  <div class="prose" style="margin-bottom: 1.25rem;">
+    <p>
+      Förslaget skickas via e-post till <a href="mailto:hej@åland.website">hej@åland.website</a>.
+      Jag (Sami) granskar bidragen och lägger upp dem i bildspelet inom några dagar.
+      Det här är en kuraterad sida — så förslag som inte passar tonen blir inte publicerade,
+      men jag svarar gärna varför.
+    </p>
+    <p style="font-size: 0.95rem; color: var(--muted);">
+      <strong>Bilder:</strong> Använd egna foton eller bilder med fri licens
+      (t.ex. Wikimedia Commons eller CC-BY). Skicka inte upphovsrättsskyddat material.
+    </p>
+  </div>
+
+  <form
+    class="suggest-form"
+    action="mailto:hej@åland.website"
+    method="post"
+    enctype="text/plain"
+    aria-label="Dela en höjdpunkt"
+  >
+    <label>
+      <span>Rubrik <small>(t.ex. <em>Sjöfartsmuseet</em>)</small></span>
+      <input type="text" name="Rubrik" required maxlength="60" autocomplete="off" />
+    </label>
+
+    <label>
+      <span>Beskrivning <small>(en eller två meningar)</small></span>
+      <textarea name="Beskrivning" rows="3" required maxlength="200"></textarea>
+    </label>
+
+    <label>
+      <span>Bild-URL <small>(valfritt — lämna tomt om du inte har en bild)</small></span>
+      <input type="url" name="Bild-URL" autocomplete="url" placeholder="https://…" />
+    </label>
+
+    <label>
+      <span>Bild-licens / källa <small>(t.ex. "Eget foto" eller "Wikimedia Commons, CC-BY")</small></span>
+      <input type="text" name="Bild-licens" />
+    </label>
+
+    <label>
+      <span>Ditt namn <small>(valfritt — om du vill stå som bidragsgivare)</small></span>
+      <input type="text" name="Namn" autocomplete="name" />
+    </label>
+
+    <label>
+      <span>Din e-post <small>(valfritt — om jag har frågor)</small></span>
+      <input type="email" name="Epost" autocomplete="email" />
+    </label>
+
+    <button class="search-button" type="submit">Skicka in höjdpunkten</button>
+  </form>
+
+  <p class="prose" style="text-align:center; margin-top: 2rem; color: var(--muted); font-size: 0.95rem;">
+    Föredrar du <a href="https://github.com/samilamti/aland-website/issues/new">ett GitHub-ärende</a>?
+    Det går också bra. Du kan även skicka en pull request direkt mot
+    <code>src/data/slides.json</code>.
+  </p>
+</Base>

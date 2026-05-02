@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Föreslå en länk — mitt.ax" description="Saknar du en sida på ålands webb? Föreslå den här.">
+  <section class="hero">
+    <h1>Föreslå en länk</h1>
+    <p>Saknar du en åländsk webbplats i listan? Skriv den här, så lägger jag till den.</p>
+  </section>
+
+  <form
+    class="suggest-form"
+    action="mailto:hej@åland.website"
+    method="post"
+    enctype="text/plain"
+    aria-label="Föreslå en länk"
+  >
+    <label>
+      <span>Sökord <small>(t.ex. <em>biblioteket</em>)</small></span>
+      <input type="text" name="Sökord" required autocomplete="off" />
+    </label>
+
+    <label>
+      <span>Webbadress <small>(t.ex. <em>https://www.bibliotek.ax</em>)</small></span>
+      <input type="url" name="URL" required autocomplete="url" />
+    </label>
+
+    <label>
+      <span>Vad är det? <small>(valfritt)</small></span>
+      <textarea name="Beskrivning" rows="3"></textarea>
+    </label>
+
+    <label>
+      <span>Din e-post <small>(valfritt — om jag har frågor)</small></span>
+      <input type="email" name="Epost" autocomplete="email" />
+    </label>
+
+    <button class="search-button" type="submit">Skicka förslag</button>
+  </form>
+
+  <p class="prose" style="text-align:center; margin-top: 2rem; color: var(--muted); font-size: 0.95rem;">
+    Formuläret öppnar din e-postklient. Föredrar du <a href="https://github.com/samilamti/aland-website/issues/new">ett GitHub-ärende</a>? Det går också bra.
+  </p>
+</Base>

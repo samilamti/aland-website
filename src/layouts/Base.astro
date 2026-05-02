@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Åland.website — hitta rätt på Ålands webb',
+  description = 'En oberoende startsida för Ålands webb. Skriv ett ord, t.ex. polisen eller posten, och kom dit direkt. Ingen spårning.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
+    <link rel="search" type="application/opensearchdescription+xml" title="Åland.website" href="/opensearch.xml" />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_FI" />
+  </head>
+  <body>
+    <div class="flag-backdrop" aria-hidden="true">
+      <svg viewBox="0 0 26 17" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="26" height="17" fill="#0F47AF"/>
+        <rect y="6.5" width="26" height="4" fill="#FFCD00"/>
+        <rect x="5" width="4" height="17" fill="#FFCD00"/>
+        <rect y="7.5" width="26" height="2" fill="#C8102E"/>
+        <rect x="6" width="2" height="17" fill="#C8102E"/>
+      </svg>
+    </div>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Åland.website — startsida">
+        <svg viewBox="0 0 26 17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="26" height="17" fill="#0F47AF"/>
+          <rect y="6.5" width="26" height="4" fill="#FFCD00"/>
+          <rect x="5" width="4" height="17" fill="#FFCD00"/>
+          <rect y="7.5" width="26" height="2" fill="#C8102E"/>
+          <rect x="6" width="2" height="17" fill="#C8102E"/>
+        </svg>
+        <span class="brand"><span class="brand-name">Åland</span><span class="brand-tld">.website</span></span>
+      </a>
+      <p class="tagline">oberoende civic-tech</p>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>
+        Skapad av Sami Lamti · ingen spårning · öppen källkod
+        · <a href="/om">om sidan</a>
+        · <a href="/foresla">föreslå en länk</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "note": "Highlights from Åland for the slider. Drop a real image URL in `imageUrl` (and a Swedish alt-text in `imageAlt`) to replace the gradient placeholder. License each image properly — Wikimedia Commons or own photos are fine.",
+  "slides": [
+    {
+      "title": "Mariehamn",
+      "subtitle": "Den blomstrande staden mellan två hamnar.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#1e3a5f",
+      "c2": "#3a6090"
+    },
+    {
+      "title": "Pommern",
+      "subtitle": "Världens sista bevarade fyrmastade lastfartyg, för alltid förtöjd i Mariehamn.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#0a2a4a",
+      "c2": "#1e4868"
+    },
+    {
+      "title": "Kastelholms slott",
+      "subtitle": "Medeltida fästning från 1300-talet, omgiven av öppna ängar.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#5a4528",
+      "c2": "#876a45"
+    },
+    {
+      "title": "Bomarsunds fästning",
+      "subtitle": "Ruinerna av en aldrig färdigbyggd rysk fästning vid sundet.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#3d3d3d",
+      "c2": "#6a6a6a"
+    },
+    {
+      "title": "Skärgården",
+      "subtitle": "Drygt 6 700 öar och skär — ett rike för båtfolk och fågelvänner.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#1f5060",
+      "c2": "#3f8090"
+    },
+    {
+      "title": "Midsommar på Åland",
+      "subtitle": "Midsommarstången reses, sillen serveras och dansen tar över hela ön.",
+      "imageUrl": "",
+      "imageAlt": "",
+      "c1": "#3d6a2a",
+      "c2": "#7aa84a"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import keywordsData from '../data/keywords.json';
+import { CATEGORIES, type CategoryKey, type KeywordMap } from '../lib/types';
+import { formatLabel } from '../lib/wordbreak';
+import Slider from '../components/Slider.astro';
+
+const map = keywordsData as KeywordMap;
+
+const byCategory = new Map<CategoryKey, typeof map.entries>();
+for (const entry of map.entries) {
+  const cat = entry.category as CategoryKey;
+  if (!byCategory.has(cat)) byCategory.set(cat, []);
+  byCategory.get(cat)!.push(entry);
+}
+
+const suggestions: Array<{ value: string; label: string }> = [];
+const seen = new Set<string>();
+for (const entry of map.entries) {
+  const candidates = [entry.keyword, ...(entry.aliases ?? [])];
+  for (const c of candidates) {
+    const key = c.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    suggestions.push({ value: c, label: entry.label_sv });
+  }
+}
+suggestions.sort((a, b) => a.value.localeCompare(b.value, 'sv'));
+
+const categoryOrder: CategoryKey[] = [
+  'myndighet',
+  'kommun',
+  'halsa',
+  'utbildning',
+  'transport',
+  'tjanst',
+  'media',
+  'bank',
+  'foretag',
+  'verktyg',
+  'info',
+];
+---
+<Base>
+  <section class="hero">
+    <h1>Hitta rätt</h1>
+    <p>Skriv ett ord — t.ex. <em>polisen</em>, <em>posten</em> eller <em>mariehamn</em> — och kom dit direkt.</p>
+    <form class="search-form" action="/sok" method="get" role="search" aria-label="Sök på ålands webb">
+      <label for="q" class="visually-hidden">Sök</label>
+      <input
+        id="q"
+        class="search-input"
+        type="search"
+        name="q"
+        placeholder="Sök eller skriv ett ord…"
+        list="kw-suggestions"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        autofocus
+        required
+      />
+      <button class="search-button" type="submit">Sök</button>
+      <datalist id="kw-suggestions">
+        {suggestions.map((s) => <option value={s.value} label={s.label} />)}
+      </datalist>
+    </form>
+
+    <nav class="category-bar" aria-label="Hoppa till kategori">
+      {categoryOrder.map((cat) => {
+        if (!byCategory.has(cat)) return null;
+        return <a href={`#cat-${cat}`}>{CATEGORIES[cat]}</a>;
+      })}
+    </nav>
+  </section>
+
+  <Slider />
+
+  {categoryOrder.map((cat) => {
+    const entries = byCategory.get(cat);
+    if (!entries || entries.length === 0) return null;
+    return (
+      <section class="category" aria-labelledby={`cat-${cat}`}>
+        <h2 id={`cat-${cat}`}>{CATEGORIES[cat]}</h2>
+        <ul class="tile-grid">
+          {entries.map((e) => (
+            <li>
+              <a class="tile" href={e.url} rel="external">
+                <span class="tile-key" set:html={formatLabel(e.label_sv)} />
+                <span class="tile-label">{e.keyword}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  })}
+
+  <p class="suggest-link">
+    Saknar du något? <a href="/foresla">Föreslå en länk</a>.
+  </p>
+</Base>

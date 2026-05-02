@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import keywordsData from '../data/keywords.json';
+import type { KeywordMap } from '../lib/types';
+import { formatLabel } from '../lib/wordbreak';
+
+const map = keywordsData as KeywordMap;
+
+const minimal = {
+  version: map.version,
+  entries: map.entries.map((e) => ({
+    keyword: e.keyword,
+    aliases: e.aliases ?? [],
+    url: e.url,
+    label_sv: formatLabel(e.label_sv),
+  })),
+};
+---
+<Base title="Sök — mitt.ax" description="Söker på ålands webb…">
+  <section class="hero">
+    <h1>Söker…</h1>
+    <p>Om du inte skickas vidare automatiskt, välj ett alternativ nedan eller <a href="/">återgå till startsidan</a>.</p>
+  </section>
+
+  <noscript>
+    <p style="text-align:center; color: var(--muted);">
+      JavaScript är avstängt. <a href="/">Gå tillbaka till startsidan</a> och välj från listan.
+    </p>
+  </noscript>
+
+  <div id="result" aria-live="polite"></div>
+
+  <script type="application/json" id="kwmap" set:html={JSON.stringify(minimal)} />
+
+  <script is:inline>
+    (function () {
+      const FOLDABLE = { 'å':'a','ä':'a','ö':'o','Å':'a','Ä':'a','Ö':'o' };
+      function normalize(s) {
+        return s.trim().toLowerCase()
+          .replace(/[åäöÅÄÖ]/g, (c) => FOLDABLE[c] || c)
+          .normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      const params = new URLSearchParams(location.search);
+      const q = params.get('q') || '';
+      const result = document.getElementById('result');
+      if (!q.trim()) { result.innerHTML = '<p style="text-align:center;"><a href="/">Tillbaka till startsidan</a></p>'; return; }
+
+      const data = JSON.parse(document.getElementById('kwmap').textContent);
+      const idx = new Map();
+      for (const e of data.entries) {
+        idx.set(normalize(e.keyword), e);
+        for (const a of e.aliases) {
+          const k = normalize(a);
+          if (!idx.has(k)) idx.set(k, e);
+        }
+      }
+      const nq = normalize(q);
+      const exact = idx.get(nq);
+      if (exact) { location.replace(exact.url); return; }
+
+      const prefix = [];
+      for (const [k, e] of idx) if (k.startsWith(nq)) prefix.push({ k, e });
+      const unique = new Map(prefix.map(({ k, e }) => [e.url, { k, e }]));
+      if (unique.size === 1) { const [hit] = unique.values(); location.replace(hit.e.url); return; }
+
+      if (unique.size > 1) {
+        const items = [...unique.values()]
+          .map(({ e }) => `<li><a class="tile" href="${e.url}" rel="external"><span class="tile-key">${e.label_sv}</span><span class="tile-label">${e.keyword}</span></a></li>`)
+          .join('');
+        result.innerHTML = `<p style="text-align:center;">Flera möjliga träffar för <strong>${q.replace(/[<>&]/g, '')}</strong>:</p><ul class="tile-grid">${items}</ul>`;
+        return;
+      }
+
+      const fallback = 'https://duckduckgo.com/?q=' + encodeURIComponent('site:.ax ' + q);
+      location.replace(fallback);
+    })();
+  </script>
+</Base>
