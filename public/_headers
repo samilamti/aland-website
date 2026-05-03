@@ -1,0 +1,19 @@
+# Cloudflare Pages / Workers Static Assets _headers file.
+# Applied to every response. See:
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; form-action 'self' mailto:; frame-ancestors 'none'; base-uri 'self';
+
+# Long-cache static assets (filenames don't include hashes today, so be modest)
+/favicon.svg
+  Cache-Control: public, max-age=86400
+
+/opensearch.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/opensearchdescription+xml

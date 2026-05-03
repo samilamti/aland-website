@@ -10,6 +10,17 @@ const {
   title = 'Åland.website — hitta rätt på Ålands webb',
   description = 'En oberoende startsida för Ålands webb. Skriv ett ord, t.ex. polisen eller posten, och kom dit direkt. Ingen spårning.',
 } = Astro.props;
+
+// Hard-code the Unicode form so canonical links read as `åland.website`
+// rather than the punycode `xn--land-poa.website` that URL parsers produce.
+// Both resolve to the same site; this is purely a presentation choice.
+// Also strip the `.html` suffix that Astro's `format: 'file'` adds, so the
+// canonical matches the public-facing URL.
+const SITE_URL = 'https://åland.website';
+const cleanPath = Astro.url.pathname === '/index.html'
+  ? '/'
+  : Astro.url.pathname.replace(/\.html$/, '');
+const canonical = `${SITE_URL}${cleanPath}`;
 ---
 <!doctype html>
 <html lang="sv">
@@ -20,7 +31,7 @@ const {
     <meta name="robots" content="index,follow" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
+    <link rel="canonical" href={canonical} />
     <link rel="search" type="application/opensearchdescription+xml" title="Åland.website" href="/opensearch.xml" />
     <title>{title}</title>
     <meta property="og:title" content={title} />
